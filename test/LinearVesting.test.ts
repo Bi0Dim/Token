@@ -131,9 +131,7 @@ describe("LinearVesting", function () {
       expect(releasable).to.equal(vestedAmount);
 
       // Release tokens
-      await expect(vesting.release())
-        .to.emit(vesting, "TokensReleased")
-        .withArgs(releasable);
+      await expect(vesting.release()).to.emit(vesting, "TokensReleased").withArgs(releasable);
 
       expect(await token.balanceOf(beneficiary.address)).to.equal(releasable);
       expect(await vesting.released()).to.equal(releasable);

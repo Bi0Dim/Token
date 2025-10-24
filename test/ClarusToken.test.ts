@@ -101,15 +101,7 @@ describe("ClarusToken", function () {
       const sig = ethers.Signature.from(signature);
 
       // Use permit
-      await token.permit(
-        owner.address,
-        addr1.address,
-        amount,
-        deadline,
-        sig.v,
-        sig.r,
-        sig.s
-      );
+      await token.permit(owner.address, addr1.address, amount, deadline, sig.v, sig.r, sig.s);
 
       expect(await token.allowance(owner.address, addr1.address)).to.equal(amount);
     });
@@ -147,15 +139,7 @@ describe("ClarusToken", function () {
       const signature = await owner.signTypedData(domain, types, value);
       const sig = ethers.Signature.from(signature);
 
-      await token.permit(
-        owner.address,
-        addr1.address,
-        amount,
-        deadline,
-        sig.v,
-        sig.r,
-        sig.s
-      );
+      await token.permit(owner.address, addr1.address, amount, deadline, sig.v, sig.r, sig.s);
 
       expect(await token.nonces(owner.address)).to.equal(initialNonce + 1n);
     });

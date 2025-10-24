@@ -3,11 +3,11 @@
   "plugins": [],
   "rules": {
     "compiler-version": ["error", "^0.8.0"],
-    "func-visibility": ["warn", {"ignoreConstructors": true}],
+    "func-visibility": ["warn", { "ignoreConstructors": true }],
     "not-rely-on-time": "off",
     "avoid-low-level-calls": "off",
     "no-inline-assembly": "off",
-    "reason-string": ["warn", {"maxLength": 64}],
+    "reason-string": ["warn", { "maxLength": 64 }],
     "constructor-syntax": "error",
     "quotes": ["error", "double"],
     "const-name-snakecase": "error",

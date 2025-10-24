@@ -78,6 +78,7 @@ npm run lint:format
 ### Mainnet Deployment (BNB Smart Chain)
 
 1. **Configure Environment**
+
    ```bash
    cp .env.example .env
    # Edit .env:
@@ -87,16 +88,18 @@ npm run lint:format
    ```
 
 2. **Deploy Token**
+
    ```bash
    npm run deploy:mainnet
    ```
-   
+
    This will:
    - Deploy ClarusToken contract
    - Mint 100M CLA to INITIAL_OWNER
    - Display deployment summary
 
 3. **Verify on BscScan**
+
    ```bash
    npm run verify:mainnet <CONTRACT_ADDRESS>
    ```
@@ -239,6 +242,7 @@ The project includes a responsive landing page in the `site/` directory. It auto
    - `logo-256.png` - 256x256 variant
 
 2. Update contract address in `site/index.html`:
+
    ```javascript
    const contractAddress = "YOUR_DEPLOYED_CONTRACT_ADDRESS";
    ```
@@ -297,6 +301,7 @@ For automated verification, add these secrets in repository settings:
 ### Audit Status
 
 The contracts use OpenZeppelin's audited implementations. For production use, consider:
+
 - Independent security audit
 - Formal verification
 - Bug bounty program

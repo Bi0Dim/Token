@@ -37,9 +37,9 @@ describe("BatchVestingFactory", function () {
 
     it("Should revert if token is zero address", async function () {
       const FactoryContract = await ethers.getContractFactory("BatchVestingFactory");
-      await expect(
-        FactoryContract.deploy(ethers.ZeroAddress, owner.address)
-      ).to.be.revertedWith("BatchVestingFactory: token is zero address");
+      await expect(FactoryContract.deploy(ethers.ZeroAddress, owner.address)).to.be.revertedWith(
+        "BatchVestingFactory: token is zero address"
+      );
     });
   });
 
@@ -153,13 +153,7 @@ describe("BatchVestingFactory", function () {
       await expect(
         factory
           .connect(beneficiary1)
-          .createVestingBatch(
-            beneficiaries,
-            amounts,
-            currentTime,
-            CLIFF_DURATION,
-            VESTING_DURATION
-          )
+          .createVestingBatch(beneficiaries, amounts, currentTime, CLIFF_DURATION, VESTING_DURATION)
       ).to.be.revertedWithCustomError(factory, "OwnableUnauthorizedAccount");
     });
 
