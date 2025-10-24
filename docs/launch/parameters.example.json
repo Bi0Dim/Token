@@ -1,0 +1,75 @@
+{
+  "token": {
+    "name": "Quaxis Clarus",
+    "symbol": "CLA",
+    "decimals": 18,
+    "totalSupply": "100000000",
+    "initialOwner": "0xdFC2382E2fA0B819B745EeABc859EC7A8e4a1fb1",
+    "network": "BNB Smart Chain Mainnet",
+    "chainId": 56
+  },
+  "vesting": {
+    "factory": {
+      "owner": "0xdFC2382E2fA0B819B745EeABc859EC7A8e4a1fb1"
+    },
+    "schedules": [
+      {
+        "name": "Team Vesting - 4 year linear with 1 year cliff",
+        "beneficiaries": [
+          "0x1111111111111111111111111111111111111111",
+          "0x2222222222222222222222222222222222222222"
+        ],
+        "amounts": ["5000000000000000000000000", "3000000000000000000000000"],
+        "startTime": "1704067200",
+        "cliffDuration": "31536000",
+        "vestingDuration": "126144000",
+        "description": "Team allocation with 1 year cliff and 4 year linear vesting"
+      },
+      {
+        "name": "Advisor Vesting - 2 year linear with 6 month cliff",
+        "beneficiaries": ["0x3333333333333333333333333333333333333333"],
+        "amounts": ["1000000000000000000000000"],
+        "startTime": "1704067200",
+        "cliffDuration": "15768000",
+        "vestingDuration": "63072000",
+        "description": "Advisor allocation with 6 month cliff and 2 year linear vesting"
+      }
+    ]
+  },
+  "notes": {
+    "amounts": "All amounts are in wei (18 decimals). To convert: amount * 10^18",
+    "timestamps": "All timestamps are Unix epoch time in seconds",
+    "durations": "All durations are in seconds",
+    "examples": {
+      "1_year": 31536000,
+      "6_months": 15768000,
+      "4_years": 126144000,
+      "2_years": 63072000
+    },
+    "addresses": "Replace all example addresses with actual beneficiary addresses",
+    "verification": "Always verify parameters on testnet before mainnet deployment"
+  },
+  "deployment": {
+    "steps": [
+      "1. Deploy ClarusToken with INITIAL_OWNER",
+      "2. Verify token contract on BscScan",
+      "3. Deploy BatchVestingFactory with token address and owner",
+      "4. Approve factory to spend required token amount",
+      "5. Call createVestingBatch with beneficiaries and parameters",
+      "6. Verify all vesting contracts on BscScan",
+      "7. Update documentation with deployed addresses"
+    ],
+    "mainnet": {
+      "rpc": "https://bsc-dataseed1.binance.org",
+      "chainId": 56,
+      "explorer": "https://bscscan.com",
+      "gasPrice": "3000000000 (3 gwei - adjust based on network conditions)"
+    },
+    "testnet": {
+      "rpc": "https://data-seed-prebsc-1-s1.binance.org:8545",
+      "chainId": 97,
+      "explorer": "https://testnet.bscscan.com",
+      "faucet": "https://testnet.bnbchain.org/faucet-smart"
+    }
+  }
+}
